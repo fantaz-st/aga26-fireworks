@@ -1,0 +1,23 @@
+# dependencies
+node_modules
+
+# next.js build output
+.next
+out
+
+# env files
+.env*
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode
+.idea
+
+# uncomment if the background video is too large for git (GitHub limit is 100 MB)
+# public/video/
