@@ -20,7 +20,7 @@ export default function CountdownFireworks({
   bombText,
   lineWidth = 3,
   growFrom = 0.35,
-  growDuration = 20,
+  growDuration = 10,
   intro = {
     eyebrow: "The 26th Annual General Assembly",
     title: "IAMU AGA26",
