@@ -18,6 +18,3 @@ yarn-error.log*
 Thumbs.db
 .vscode
 .idea
-
-# uncomment if the background video is too large for git (GitHub limit is 100 MB)
-# public/video/

@@ -27,7 +27,7 @@ export default function CountdownFireworks({
     { src: "/logos/iamu.png", alt: "IAMU" },
     { src: "/logos/nippon.png", alt: "The Nippon Foundation" },
   ],
-  openText = "ČEDO OTVARA KONFERENCIJU!",
+  openText = "IAMU AGA26 - OFFICIALLY OPEN",
   hideAfter,
   showStartButton = false,
   startLabel = "OPEN THE CEREMONY",
