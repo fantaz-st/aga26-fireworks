@@ -24,15 +24,14 @@ export default function CountdownFireworks({
   intro = {
     eyebrow: "The 26th Annual General Assembly",
     title: "IAMU AGA26",
-    subtitle:
-      "Human Centered Digital Ocean: Educating safe & green global maritime professionals",
+    subtitle: "Human Centered Digital Ocean: Educating safe & green global maritime professionals",
   },
   logos = [
     { src: "/logos/iamu.png", alt: "IAMU" },
     { src: "/logos/pfst.png", alt: "Faculty of Maritime Studies" },
     { src: "/logos/nippon.png", alt: "The Nippon Foundation" },
   ],
-  openText = "IAMU AGA26 - OFFICIALLY OPEN",
+  openText = "IAMU AGA26 OFFICIALLY OPEN",
   hideAfter,
   showStartButton = false,
   startLabel = "OPEN THE CEREMONY",
@@ -115,23 +114,14 @@ export default function CountdownFireworks({
       const tl = gsap.timeline({ delay: 1.0 });
 
       // white flash + shockwave ring at the moment of impact
-      tl.fromTo(
-        `.${styles.flash}`,
-        { opacity: 0, scale: 0.3 },
-        { opacity: 1, scale: 1, duration: 0.12, ease: "power2.out" },
-      )
+      tl.fromTo(`.${styles.flash}`, { opacity: 0, scale: 0.3 }, { opacity: 1, scale: 1, duration: 0.12, ease: "power2.out" })
         .to(`.${styles.flash}`, {
           opacity: 0,
           scale: 1.6,
           duration: 0.9,
           ease: "power2.out",
         })
-        .fromTo(
-          `.${styles.shock}`,
-          { opacity: 0.9, scale: 0 },
-          { opacity: 0, scale: 5, duration: 1.1, ease: "expo.out" },
-          0,
-        );
+        .fromTo(`.${styles.shock}`, { opacity: 0.9, scale: 0 }, { opacity: 0, scale: 5, duration: 1.1, ease: "expo.out" }, 0);
 
       // letters explode outward from the centre: 0 → 1.3, then settle to 1
       tl.to(
@@ -178,8 +168,7 @@ export default function CountdownFireworks({
       tl.call(
         () => {
           glow = gsap.to(headlineRef.current, {
-            textShadow:
-              "0 0 40px rgba(255,255,255,0.95), 0 0 90px rgba(255,220,150,0.6), 0 4px 40px rgba(0,0,0,0.6)",
+            textShadow: "0 0 40px rgba(255,255,255,0.95), 0 0 90px rgba(255,220,150,0.6), 0 4px 40px rgba(0,0,0,0.6)",
             duration: 1.4,
             ease: "sine.inOut",
             yoyo: true,
@@ -247,11 +236,7 @@ export default function CountdownFireworks({
           ease: "power2.in",
           stagger: 0.08,
         })
-        .to(
-          introRef.current,
-          { opacity: 0, duration: 0.3, ease: "power1.out" },
-          "-=0.25",
-        );
+        .to(introRef.current, { opacity: 0, duration: 0.3, ease: "power1.out" }, "-=0.25");
     },
     { scope: rootRef, dependencies: [phase] },
   );
@@ -283,49 +268,21 @@ export default function CountdownFireworks({
   });
 
   return (
-    <div
-      ref={rootRef}
-      className={`${styles.root} ${phase === "idle" ? styles.idle : ""}`}
-      onClick={begin}
-    >
-      {videoSrc && (
-        <video
-          className={styles.video}
-          src={videoSrc}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-        />
-      )}
+    <div ref={rootRef} className={`${styles.root} ${phase === "idle" ? styles.idle : ""}`} onClick={begin}>
+      {videoSrc && <video className={styles.video} src={videoSrc} autoPlay muted loop playsInline preload="auto" />}
 
       {/* with a video, the black canvas is screen-blended so only the light shows */}
-      <div
-        ref={mountRef}
-        className={`${styles.canvas} ${videoSrc ? styles.screen : ""}`}
-      />
+      <div ref={mountRef} className={`${styles.canvas} ${videoSrc ? styles.screen : ""}`} />
 
       {intro && (phase === "idle" || phase === "leaving") && (
         <div ref={introRef} className={styles.intro}>
           {intro.eyebrow && <p className={styles.eyebrow}>{intro.eyebrow}</p>}
-          {intro.title && (
-            <h1 className={`${styles.introTitle} ${antonio.variable}`}>
-              {intro.title}
-            </h1>
-          )}
-          {intro.subtitle && (
-            <p className={styles.subtitle}>{intro.subtitle}</p>
-          )}
+          {intro.title && <h1 className={`${styles.introTitle} ${antonio.variable}`}>{intro.title}</h1>}
+          {intro.subtitle && <p className={styles.subtitle}>{intro.subtitle}</p>}
           {logos?.length > 0 && (
             <div className={styles.logos}>
               {logos.map((logo) => (
-                <img
-                  key={logo.src}
-                  src={logo.src}
-                  alt={logo.alt}
-                  className={styles.logo}
-                />
+                <img key={logo.src} src={logo.src} alt={logo.alt} className={styles.logo} />
               ))}
             </div>
           )}
@@ -339,24 +296,13 @@ export default function CountdownFireworks({
       )}
 
       {(phase === "counting" || phase === "show") && (
-        <div
-          className={`${styles.overlay} ${phase === "show" ? styles.out : ""}`}
-        >
+        <div className={`${styles.overlay} ${phase === "show" ? styles.out : ""}`}>
           <div ref={countInRef} className={styles.countIn}>
             <svg className={styles.ring} viewBox="0 0 200 200" aria-hidden>
               <circle cx="100" cy="100" r="92" className={styles.track} />
-              <circle
-                cx="100"
-                cy="100"
-                r="92"
-                className={styles.progress}
-                style={{ animationDuration: `${from}s` }}
-              />
+              <circle cx="100" cy="100" r="92" className={styles.progress} style={{ animationDuration: `${from}s` }} />
             </svg>
-            <span
-              key={count}
-              className={`${styles.num} ${count === 0 ? styles.zero : ""}`}
-            >
+            <span key={count} className={`${styles.num} ${count === 0 ? styles.zero : ""}`}>
               {count}
             </span>
           </div>
@@ -367,11 +313,7 @@ export default function CountdownFireworks({
         <div className={styles.reveal}>
           <div className={styles.flash} />
           <div className={styles.shock} />
-          <h1
-            ref={headlineRef}
-            className={styles.headline}
-            aria-label={openText}
-          >
+          <h1 ref={headlineRef} className={styles.headline} aria-label={openText}>
             {openText.split(" ").map((word, w) => (
               <span key={w} className={styles.word} aria-hidden>
                 {[...word].map((ch, c) => (
